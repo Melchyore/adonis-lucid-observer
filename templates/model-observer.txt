@@ -1,0 +1,16 @@
+import type { ModelQueryBuilderContract } from '@ioc:Adonis/Lucid/Orm'
+import type { ObserverContract } from '@ioc:Adonis/Addons/LucidObserver'
+
+import {{ modelName }} from '{{{ modelPath }}}'
+
+export default class {{ filename }} implements ObserverContract {
+  public async beforeFind(query: ModelQueryBuilderContract<typeof {{ modelName }}>): Promise<void> {}
+
+  public async afterFind({{ camelCasedModelName }}: {{ modelName }}): Promise<void> {}
+
+  public async beforeFetch(query: ModelQueryBuilderContract<typeof {{ modelName }}>): Promise<void> {}
+
+  public async beforeSave({{ camelCasedModelName }}: {{ modelName }}): Promise<void> {}
+
+  public async afterSave({{ camelCasedModelName }}: {{ modelName }}): Promise<void> {}
+}

@@ -1,0 +1,14 @@
+import type { ModelQueryBuilderContract, LucidModel, LucidRow } from '@ioc:Adonis/Lucid/Orm'
+import type { ObserverContract } from '@ioc:Adonis/Addons/LucidObserver'
+
+export default class {{ filename }} implements ObserverContract {
+  public async beforeFind(query: ModelQueryBuilderContract<LucidModel>): Promise<void> {}
+
+  public async afterFind(model: LucidRow): Promise<void> {}
+
+  public async beforeFetch(query: ModelQueryBuilderContract<LucidModel>): Promise<void> {}
+
+  public async beforeSave(model: LucidRow): Promise<void> {}
+
+  public async afterSave(model: LucidRow): Promise<void> {}
+}
