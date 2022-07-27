@@ -1,6 +1,6 @@
 {
   "name": "@melchyore/adonis-lucid-observer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Observer package for AdonisJS V5 Lucid ORM",
   "author": "Oussama Benhamed",
