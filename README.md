@@ -1,6 +1,6 @@
 <h1 align="center">Lucid Observer</h1>
 <p>
-  <a href="https://npmjs.org/package/@melchyore/adonis-ucid-observer" target="_blank">
+  <a href="https://npmjs.org/package/@melchyore/adonis-lucid-observer" target="_blank">
     <img alt="npm" src="https://img.shields.io/npm/v/@melchyore/adonis-lucid-observer.svg?style=for-the-badge&logo=npm" />
   </a>
   <a href="https://github.com/Melchyore/adonis-lucid-observer/blob/master/LICENSE.md" target="_blank">
