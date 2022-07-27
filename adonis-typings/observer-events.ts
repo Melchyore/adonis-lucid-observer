@@ -7,25 +7,27 @@ declare module '@ioc:Adonis/Core/Event' {
   } from '@ioc:Adonis/Lucid/Orm'
   import type { SimplePaginatorContract } from '@ioc:Adonis/Lucid/Database'
 
+  type ObserverEventName<Event extends string> = `observer:${Event}`
+
+  type Data<Type> = Type extends ObserverEventName<'beforeFetch'> | ObserverEventName<'beforeFind'>
+    ? ModelQueryBuilderContract<LucidModel>
+    : Type extends ObserverEventName<'beforePaginate'>
+    ? [ModelQueryBuilderContract<LucidModel>, ModelQueryBuilderContract<LucidModel>]
+    : Type extends ObserverEventName<'afterPaginate'>
+    ? SimplePaginatorContract<LucidRow>
+    : Type extends ObserverEventName<'afterFetch'>
+    ? Array<LucidRow>
+    : LucidRow
+
   type Payload<Type extends string> = {
     type: Type
-    data: Type extends 'observer:beforeFetch' | 'observer:beforeFind'
-      ? ModelQueryBuilderContract<LucidModel>
-      : Type extends 'observer:beforePaginate'
-      ? [ModelQueryBuilderContract<LucidModel>, ModelQueryBuilderContract<LucidModel>]
-      : Type extends 'observer:afterPaginate'
-      ? SimplePaginatorContract<LucidRow>
-      : Type extends 'observer:afterFetch'
-      ? Array<LucidRow>
-      : LucidRow
+    data: Data<Type>
     observer: string
-    isTransaction: Type extends 'observer:afterPaginate' ? false : boolean
+    isTransaction: Type extends ObserverEventName<'afterPaginate'> ? false : boolean
   }
 
-  type EventName<Type extends string> = `observer:${Type}${Capitalize<Hooks>}`
-
-  type BeforeHooksList = EventName<'before'>
-  type AfterHooksList = EventName<'after'>
+  type BeforeHooksList = ObserverEventName<`before${Capitalize<Hooks>}`>
+  type AfterHooksList = ObserverEventName<`after${Capitalize<Hooks>}`>
 
   type HooksList = {
     [Key in BeforeHooksList]: Payload<Key>
