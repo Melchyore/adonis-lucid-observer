@@ -27,7 +27,11 @@ If you don't know what are hooks, you can read about them [here](https://docs.ad
 # Installation
 
 ```sh
-yarn install @melchyore/adonis-lucid-observer
+npm install @melchyore/adonis-lucid-observer
+
+# or using Yarn
+
+yarn add @melchyore/adonis-lucid-observer
 ```
 
 # Configure
