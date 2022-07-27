@@ -54,10 +54,12 @@ The `GlobalObserver` will be placed in `App/Observers`. This directory is create
 Following is the content of the created file. Note that methods are **not** static.
 
 ```ts
+// App/Observers/GlobalObserver.ts
+
 import type { ModelQueryBuilderContract, LucidModel, LucidRow } from '@ioc:Adonis/Lucid/Orm'
 import type { ObserverContract } from '@ioc:Adonis/Addons/LucidObserver'
 
-export default class FooBarObserver implements ObserverContract {
+export default class GlobalObserver implements ObserverContract {
   public async beforeFind(query: ModelQueryBuilderContract<LucidModel>): Promise<void> {}
 
   public async afterFind(model: LucidRow): Promise<void> {}
@@ -85,6 +87,8 @@ The `UserObserver` will be placed in `App/Observers`. This directory is created 
 Following is the content of the created file. Note that methods are **not** static.
 
 ```ts
+// App/Observers/UserObserver.ts
+
 import type { ModelQueryBuilderContract } from '@ioc:Adonis/Lucid/Orm'
 import type { ObserverContract } from '@ioc:Adonis/Addons/LucidObserver'
 
@@ -112,6 +116,8 @@ export default class UserObserver implements ObserverContract {
 If we want to hash the user password, then we will edit the `beforeSave` method.
 
 ```ts
+// App/Observers/UserObserver.ts
+
 import type { ModelQueryBuilderContract } from '@ioc:Adonis/Lucid/Orm'
 import type { ObserverContract } from '@ioc:Adonis/Addons/LucidObserver'
 
