@@ -122,6 +122,10 @@
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21"
   },
+  "publishConfig": {
+    "tag": "latest",
+    "access": "public"
+  },
   "mrmConfig": {
     "core": false,
     "license": "MIT",
