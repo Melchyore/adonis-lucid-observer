@@ -471,6 +471,9 @@ Event.on('observer:afterSave', (data) => {
 })
 ```
 
+## What about hooks decorators?
+You can still use hooks decorators along with the observers in your models. Hooks decorators will always be executed before observers. However, it's preferable not to use both.
+
 # Run tests
 
 ```sh
