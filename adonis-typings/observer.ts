@@ -213,7 +213,7 @@ declare module '@ioc:Adonis/Addons/LucidObserver' {
 
   export interface ObservableRow extends LucidRow {
     /**
-     * Save without executing 0observers methods.
+     * Save without executing Observers methods.
      */
     saveQuietly(): Promise<this>
   }
